@@ -1,0 +1,5 @@
+dispatch:
+  - url: "*shop.anchor.institute/*"
+    service: organic-matter
+  - url: "*www.anchor.institute/*"
+    service: default
