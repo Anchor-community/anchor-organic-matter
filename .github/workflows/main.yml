@@ -35,9 +35,8 @@ jobs:
           workload_identity_provider: 'projects/402342723568/locations/global/workloadIdentityPools/anchor-github-actions/providers/github'
           service_account: 'anchor-github-deploy@anchor-291911.iam.gserviceaccount.com'
 
-      - id: 'gcloud'
-        name: 'gcloud'
-        run: |-
-          gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-          gcloud services list
+      - id: 'deploy'
+        name: Deploy to App Engine
+        uses: google-github-actions/deploy-appengine@v0.4.0
+
 
