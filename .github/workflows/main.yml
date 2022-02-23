@@ -37,6 +37,8 @@ jobs:
 
       - id: 'deploy'
         name: Deploy to App Engine
-        uses: google-github-actions/deploy-appengine@v0.4.0
+        run: |-
+          gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
+          gcloud app deploy ./app.yaml
 
 
