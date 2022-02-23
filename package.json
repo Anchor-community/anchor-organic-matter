@@ -6,18 +6,24 @@
     "deploy": "rm -rf .next/ && yarn build && gcloud app deploy",
     "build": "next build",
     "start": "next start -p $PORT",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "concurrently 'yarn:format:*'",
+    "format:eslint": "eslint ./ --fix",
+    "format:prettier": "prettier ./ --write"
   },
   "dependencies": {
-    "next": "12.0.8",
+    "next": "^12.1.0",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@types/node": "17.0.8",
     "@types/react": "17.0.38",
+    "concurrently": "^7.0.0",
     "eslint": "8.6.0",
     "eslint-config-next": "12.0.8",
-    "typescript": "4.5.4"
+    "eslint-config-prettier": "^8.4.0",
+    "prettier": "^2.5.1",
+    "typescript": "4.5.5"
   }
 }
