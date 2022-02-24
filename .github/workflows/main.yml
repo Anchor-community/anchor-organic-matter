@@ -6,9 +6,7 @@ name: CI
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -44,8 +42,6 @@ jobs:
       - name: install npm packages
         run: yarn install
       - name: Deploy to App Engine
-        run:  |-
+        run: |-
           gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
           yarn deploy
-
-
